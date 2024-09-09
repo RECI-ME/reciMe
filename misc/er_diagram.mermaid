@@ -2,8 +2,8 @@
 title: ReciMe ER Diagram
 ---
 erDiagram
-    User }|..|{ Recipes :posts
-    User }|..|{ Comments :writes
-    User }|..|{ Comments :likes
-    User }|..|{ Recipes :likes
-    Recipes }|..|{ Comments :has
+    User ||..|{ Recipes :posts
+    User ||..|{ Comments :writes
+    User ||..|{ Comments :likes
+    User ||..|{ Recipes :likes
+    Recipes ||..|{ Comments :has
