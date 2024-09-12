@@ -3,11 +3,15 @@ title: ReciMe ER Diagram
 ---
 erDiagram
     User ||..o{ Recipe :posts
+    User ||..o| Chef :ISA
     User ||..o{ Recipe :likes
-    User ||..o{ Comment :writes
-    User ||..o{ Comment :likes
-    Recipe ||..o{ Comment :has
-    Recipe ||..o| Vegan :ISA
-    Recipe ||..o| Vegeterian :ISA
-    Recipe ||..o| "Spicy / Hot" :ISA    
-    Recipe ||..o| "Quick Meal" :ISA    
+    User ||..o{ Reviews :writes
+    User ||..o{ Reviews :likes
+    Recipe ||..o{ Reviews :has
+    Recipe ||..|{ Category :has
+    Recipe ||..o| Trending :ISA
+    Category ||..o| Vegan :ISA
+    Category ||..o| Vegeterian :ISA
+    Category ||..o| "Spicy / Hot" :ISA    
+    Category ||..o| "Quick Meal" :ISA   
+    Reviews ||..o| Pinned :ISA 
