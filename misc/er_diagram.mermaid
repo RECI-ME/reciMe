@@ -2,19 +2,20 @@
 title: ReciMe ER Diagram
 ---
 erDiagram
-    User ||..o{ Recipe :posts
-    User ||..o| Chef :ISA
-    User ||..o{ Recipe :rates
-    User ||..o{ Reviews :writes
-    User ||..o{ Reviews :likes
-    User ||..o{ Recipe : saves
-    Recipe ||..o| Trending :ISA
-    Recipe ||..o{ Reviews :has
-    Recipe ||..o{ Rating :has
-    Recipe||..o{ Ingridients :has
-    Recipe ||..o{ Category :has
-    Category ||..o| Vegan :ISA
-    Category ||..o| Vegeterian :ISA
-    Category ||..o| "Spicy / Hot" :ISA    
-    Category ||..o| "Quick Meal" :ISA   
+    Users ||..o{ Recipes :posts
+    Users ||..o| Chefs :ISA
+    Users ||..o{ Recipes :rates
+    Users ||..o{ Reviews :writes
+    Users ||..o{ Reviews :likes
+    Users ||..o{ Favorites :has
+    Recipes ||..o| Favorites :ISA
+    Recipes ||..o| Trending :ISA
+    Recipes ||..o{ Reviews :has
+    Recipes ||..o{ Ratings :has
+    Recipes||..o{ Ingridients :has
+    Recipes ||..o{ Categories :has
+    Categories ||..o| Vegan :ISA
+    Categories ||..o| Vegeterian :ISA
+    Categories ||..o| "Spicy / Hot" :ISA    
+    Categories ||..o| "Quick Meal" :ISA   
     Reviews ||..o| Pinned :ISA 
