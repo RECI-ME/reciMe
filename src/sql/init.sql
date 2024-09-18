@@ -1,55 +1,118 @@
-DROP TABLE IF EXISTS AppUser, Chef, Category, Recipe, Review, UserLikesRecipe, Cuisine;
+CREATE DATABASE RECIME;
 
-CREATE TABLE AppUser (
+DROP TABLE IF EXISTS 
+    Users, 
+    Chefs, 
+    MichelinChefs,
+    Categories, 
+    Recipes, 
+    Reviews, 
+    Favorites, 
+    Ratings, 
+    MarkedReviews,
+    Ingredients;
+
+
+CREATE TABLE Users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50) NOT NULL,
+    since TIMESTAMP NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Chef (
+CREATE TABLE Chefs (
     chef_id INT PRIMARY KEY AUTO_INCREMENT,
-    chef_specialty VARCHAR(100),
+    since TIMESTAMP NOT NULL,
     user_id INT UNIQUE,
-    FOREIGN KEY (user_id) REFERENCES AppUser(user_id)
+    FOREIGN KEY (user_id) 
+        REFERENCES Users(user_id)
+        ON DROP CASCADE,
 );
 
-CREATE TABLE Category (
+CREATE TABLE CertifiedChefs (
+    certified_chef_id INT PRIMARY KEY AUTO_INCREMENT,
+    since TIMESTAMP NOT NULL,
+    chef_specialty VARCHAR(100),
+    chief_id INT,
+    FOREIGN KEY (chef_id) 
+        REFERENCES Chefs(user_id)
+        ON DROP CASCADE,
+);
+
+CREATE TABLE Categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL UNIQUE
+    name VARCHAR(50) NOT NULL,
+    recipe_id INT,
+    FOREIGN KEY (recipe_id)
+        REFERENCES Recipes(recipe_id)
+        ON DELETE CASCADE,
 );
 
-CREATE TABLE Cuisine (
-    cuisine_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL UNIQUE
-);
-CREATE TABLE Recipe (
+CREATE TABLE Recipes (
     recipe_id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
+    name VARCHAR(150) NOT NULL,
     user_id INT,
-    category_id INT,
-    cuisine_id INT,
-    FOREIGN KEY (user_id) REFERENCES AppUser(user_id),
-    FOREIGN KEY (category_id) REFERENCES Category(category_id),
-    FOREIGN KEY (cuisine_id) REFERENCES Cuisine(cuisine_id)
+    trending BOOLEAN,
+    FOREIGN KEY (user_id),
+        REFERENCES Users(user_id),
+        ON DELETE CASCADE,
 );
 
-CREATE TABLE Review (
+CREATE TABLE Reviews (
     review_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     recipe_id INT,
     review_text TEXT,
-    FOREIGN KEY (user_id) REFERENCES AppUser(user_id),
-    FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id)
+    FOREIGN KEY (user_id) 
+        REFERENCES Users(user_id)
+        ON DROP CASCADE,
+    FOREIGN KEY (recipe_id) 
+        REFERENCES Recipes(recipe_id)
+        ON DROP CASCADE,
 );
 
-CREATE TABLE UserLikesRecipe (
+CREATE TABLE Favorites (
+    favorite_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     recipe_id INT,
-    PRIMARY KEY (user_id, recipe_id),
-    FOREIGN KEY (user_id) REFERENCES AppUser(user_id),
-    FOREIGN KEY (recipe_id) REFERENCES Recipe(recipe_id)
+    FOREIGN KEY (user_id) 
+        REFERENCES Users(user_id)
+        ON DROP CASCADE,
+    FOREIGN KEY (recipe_id) 
+        REFERENCES Recipes(recipe_id)
+        ON DROP CASCADE,
 );
+
+CREATE TABLE Ratings (
+    rating_id INT PRIMARY KEY AUTO_INCREMENT,
+    score INT NOT NULL,
+    recipe_id INT,
+    FOREIGN KEY (recipe_id)
+        REFERENCES Recipes(recipe_id)
+        ON DROP CASCADE,
+);
+
+CREATE TABLE MarkedReviews (
+    marked_review_id INT PRIMARY KEY AUTO_INCREMENT,
+    review_id INT,
+    user_id INT NOT NULL,
+    FOREIGN KEY (review_id)
+        REFERENCES Reviews(review_id)
+        ON DROP CASCADE,
+    FOREIGN KEY (user_id)
+        REFERENCES Users(user_id)
+        ON DROP CASCADE,
+);
+
+CREATE TABLE Ingredients (
+    ingredient_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    recipe_id INT,
+    FOREIGN KEY (recipe_id)
+        REFERENCES Recipes(recipe_id)
+        ON DROP CASCADE,
+);
+
 
 SHOW TABLES;
