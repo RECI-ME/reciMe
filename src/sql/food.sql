@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS 
+    Recipes CASCADE,
     Categories, 
-    Ingredients,
-    Recipes;
+    Ingredients;
 
 
 CREATE TABLE Recipes (
@@ -10,7 +10,7 @@ CREATE TABLE Recipes (
     user_id INT,
     trending BOOLEAN,
     FOREIGN KEY (user_id)
-        REFERENCES Users(user_id),
+        REFERENCES Users(user_id)
         ON DELETE CASCADE
 );
 

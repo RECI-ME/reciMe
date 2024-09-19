@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS 
+    Reviews CASCADE,
     MarkedReviews,
-    Reviews, 
     Favorites, 
     Ratings;
 
