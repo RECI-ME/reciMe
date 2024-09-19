@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS 
+    MarkedReviews,
     Reviews, 
     Favorites, 
-    Ratings, 
-    MarkedReviews,
+    Ratings;
 
 
 CREATE TABLE Reviews (

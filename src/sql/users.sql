@@ -1,8 +1,7 @@
 DROP TABLE IF EXISTS 
-    Users, 
+    CertifiedChefs,
     Chefs, 
-    CertifiedChefs;
-
+    Users;
 
 CREATE TABLE Users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,

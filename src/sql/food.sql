@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS 
-    Recipes, 
     Categories, 
-    Ingredients;
+    Ingredients,
+    Recipes;
 
 
 CREATE TABLE Recipes (
