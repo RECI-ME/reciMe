@@ -9,7 +9,7 @@ CREATE TABLE Recipes (
     name VARCHAR(150) NOT NULL,
     user_id INT,
     trending BOOLEAN,
-    FOREIGN KEY (user_id),
+    FOREIGN KEY (user_id)
         REFERENCES Users(user_id),
         ON DELETE CASCADE
 );
