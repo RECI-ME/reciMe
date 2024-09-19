@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS 
     Users, 
     Chefs, 
-    MichelinChefs;
+    CertifiedChefs;
 
 
 CREATE TABLE Users (
