@@ -1,4 +1,4 @@
-IF EXISTS recime DROP DATABASE recime;
+IF EXISTS test DROP DATABASE test;
 
 USE recime;
 
