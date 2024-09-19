@@ -1,6 +1,6 @@
 IF EXISTS test DROP DATABASE test;
 
-USE recime;
+USE test;
 
 SOURCE users.sql;
 SOURCE food.sql;
