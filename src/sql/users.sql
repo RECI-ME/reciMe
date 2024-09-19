@@ -26,7 +26,7 @@ CREATE TABLE CertifiedChefs (
     since TIMESTAMP NOT NULL,
     chef_id INT,
     FOREIGN KEY (chef_id) 
-        REFERENCES Chefs(chief_id)
+        REFERENCES Chefs(chef_id)
         ON DELETE CASCADE
 );
 
