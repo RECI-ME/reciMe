@@ -27,7 +27,7 @@ CREATE TABLE Chefs (
     user_id INT UNIQUE,
     FOREIGN KEY (user_id) 
         REFERENCES Users(user_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE CertifiedChefs (
@@ -36,7 +36,7 @@ CREATE TABLE CertifiedChefs (
     chief_id INT,
     FOREIGN KEY (chef_id) 
         REFERENCES Chefs(chief_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Categories (
@@ -45,7 +45,7 @@ CREATE TABLE Categories (
     recipe_id INT,
     FOREIGN KEY (recipe_id)
         REFERENCES Recipes(recipe_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Recipes (
@@ -55,7 +55,7 @@ CREATE TABLE Recipes (
     trending BOOLEAN,
     FOREIGN KEY (user_id),
         REFERENCES Users(user_id),
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Reviews (
@@ -68,7 +68,7 @@ CREATE TABLE Reviews (
         ON DELETE CASCADE,
     FOREIGN KEY (recipe_id) 
         REFERENCES Recipes(recipe_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Favorites (
@@ -80,7 +80,7 @@ CREATE TABLE Favorites (
         ON DELETE CASCADE,
     FOREIGN KEY (recipe_id) 
         REFERENCES Recipes(recipe_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Ratings (
@@ -89,7 +89,7 @@ CREATE TABLE Ratings (
     recipe_id INT,
     FOREIGN KEY (recipe_id)
         REFERENCES Recipes(recipe_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE MarkedReviews (
@@ -101,7 +101,7 @@ CREATE TABLE MarkedReviews (
         ON DELETE CASCADE,
     FOREIGN KEY (user_id)
         REFERENCES Users(user_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 CREATE TABLE Ingredients (
@@ -110,7 +110,7 @@ CREATE TABLE Ingredients (
     recipe_id INT,
     FOREIGN KEY (recipe_id)
         REFERENCES Recipes(recipe_id)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE
 );
 
 
