@@ -1,10 +1,3 @@
-DROP TABLE IF EXISTS 
-    Reviews CASCADE,
-    MarkedReviews,
-    Favorites, 
-    Ratings;
-
-
 CREATE TABLE Reviews (
     review_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,

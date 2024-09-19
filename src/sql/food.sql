@@ -1,9 +1,3 @@
-DROP TABLE IF EXISTS 
-    Recipes CASCADE,
-    Categories, 
-    Ingredients;
-
-
 CREATE TABLE Recipes (
     recipe_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(150) NOT NULL,

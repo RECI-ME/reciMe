@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS 
     Users CASCADE,
-    Chefs CASCADE, 
-    CertifiedChefs;
+
 
 CREATE TABLE Users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
