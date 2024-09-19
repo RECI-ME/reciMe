@@ -1,4 +1,4 @@
-CREATE DATABASE RECIME;
+USE db_group25;
 
 DROP TABLE IF EXISTS 
     Users, 
@@ -33,7 +33,6 @@ CREATE TABLE Chefs (
 CREATE TABLE CertifiedChefs (
     certified_chef_id INT PRIMARY KEY AUTO_INCREMENT,
     since TIMESTAMP NOT NULL,
-    chef_specialty VARCHAR(100),
     chief_id INT,
     FOREIGN KEY (chef_id) 
         REFERENCES Chefs(chief_id)
