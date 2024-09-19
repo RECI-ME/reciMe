@@ -1,4 +1,6 @@
-USE db_group25;
+IF EXISTS recime DROP DATABASE recime;
+
+USE recime;
 
 SOURCE users.sql;
 SOURCE food.sql;
