@@ -1,17 +1,8 @@
 DROP TABLE IF EXISTS 
-    Categories, 
     Recipes, 
+    Categories, 
     Ingredients;
 
-
-CREATE TABLE Categories (
-    category_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    recipe_id INT,
-    FOREIGN KEY (recipe_id)
-        REFERENCES Recipes(recipe_id)
-        ON DELETE CASCADE
-);
 
 CREATE TABLE Recipes (
     recipe_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -20,6 +11,15 @@ CREATE TABLE Recipes (
     trending BOOLEAN,
     FOREIGN KEY (user_id),
         REFERENCES Users(user_id),
+        ON DELETE CASCADE
+);
+
+CREATE TABLE Categories (
+    category_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    recipe_id INT,
+    FOREIGN KEY (recipe_id)
+        REFERENCES Recipes(recipe_id)
         ON DELETE CASCADE
 );
 
