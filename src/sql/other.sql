@@ -2,7 +2,7 @@ CREATE TABLE Reviews (
     review_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     recipe_id INT,
-    review_text TEXT,
+    review_text VARCHAR (250),
     FOREIGN KEY (user_id) 
         REFERENCES Users(user_id)
         ON DELETE CASCADE,
