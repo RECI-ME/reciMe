@@ -41,8 +41,8 @@ VALUES
 -- Populating reviews table
 INSERT INTO Reviews (recipe_id, user_id, review_text) 
 VALUES 
-(1, 5, 'Amazing chocolate cake! Best I have ever made!'),
-(2, 4, 'Tasty, but needed more seasoning.'),
-(3, 5, 'Classic apple pie, my go-to recipe.'),
-(4, 3, 'Caesar salad was good, but dressing was a bit bland.'),
-(5, 5, 'Perfect Mojito, refreshing and delicious!');
+(1, 1, 'Amazing chocolate cake! Best I have ever made!'),
+(2, 3, 'Tasty, but needed more seasoning.'),
+(3, 1, 'Classic apple pie, my go-to recipe.'),
+(2, 3, 'Caesar salad was good, but dressing was a bit bland.'),
+(1, 2, 'Perfect Mojito, refreshing and delicious!');
