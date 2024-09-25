@@ -1,4 +1,4 @@
-INSERT INTO Users (since TIMESTAMP DEFAULT CURRENT_TIMESTAMP, username, email, password) 
+INSERT INTO Users (since , username, email, password) 
 VALUES 
 (CURRENT_TIMESTAMP, 'chefjohn', 'john@example.com', 'password123'),
 (CURRENT_TIMESTAMP, 'marychef', 'mary@example.com', 'password456'),
@@ -14,13 +14,13 @@ VALUES
 ('Beverage');
 
 
-INSERT INTO Recipes (name, user_id, category_id, description) 
+INSERT INTO Recipes (name, user_id) 
 VALUES 
-('Chocolate Cake', 1, 1, 'Rich chocolate cake with frosting'),
-('Grilled Salmon', 2, 2, 'Grilled salmon with lemon and herbs'),
-('Apple Pie', 3, 1, 'Delicious traditional apple pie'),
-('Caesar Salad', 4, 3, 'Healthy Caesar Salad with homemade dressing'),
-('Mojito', 1, 4, 'Refreshing mint and lime cocktail');
+('Chocolate Cake', 1),
+('Grilled Salmon', 2),
+('Apple Pie', 3),
+('Caesar Salad', 4),
+('Mojito', 1);
 
 
 INSERT INTO Ingredients (recipe_id, name) 
