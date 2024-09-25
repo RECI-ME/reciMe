@@ -1,4 +1,4 @@
 SELECT rating_id, AVG(score) FROM Ratings
 INNER JOIN Recipes
-ON rating_id = Recipes.recipe_id
-GROUP BY recipe_id;
+ON Ratings.rating_id = Recipes.recipe_id
+GROUP BY Recipes.recipe_id;
