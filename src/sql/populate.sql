@@ -1,4 +1,4 @@
-INSERT INTO users (username, email, password) 
+INSERT INTO Users (username, email, password) 
 VALUES 
 ('chefjohn', 'john@example.com', 'password123'),
 ('marychef', 'mary@example.com', 'password456'),
@@ -6,7 +6,7 @@ VALUES
 ('jamieoliver', 'jamie@example.com', 'healthychef');
 
 
-INSERT INTO categories (category_name) 
+INSERT INTO Categories (category_name) 
 VALUES 
 ('Dessert'),
 ('Main Course'),
@@ -14,7 +14,7 @@ VALUES
 ('Beverage');
 
 
-INSERT INTO recipes (recipe_name, user_id, category_id, description) 
+INSERT INTO Recipes (recipe_name, user_id, category_id, description) 
 VALUES 
 ('Chocolate Cake', 1, 1, 'Rich chocolate cake with frosting'),
 ('Grilled Salmon', 2, 2, 'Grilled salmon with lemon and herbs'),
@@ -23,7 +23,7 @@ VALUES
 ('Mojito', 1, 4, 'Refreshing mint and lime cocktail');
 
 
-INSERT INTO ingredients (recipe_id, ingredient_name) 
+INSERT INTO Ingredients (recipe_id, ingredient_name) 
 VALUES 
 (1, 'Chocolate'),
 (1, 'Flour'),
@@ -39,7 +39,7 @@ VALUES
 (5, 'Lime');
 
 -- Populating reviews table
-INSERT INTO reviews (recipe_id, rating, review_text) 
+INSERT INTO Reviews (recipe_id, rating, review_text) 
 VALUES 
 (1, 5, 'Amazing chocolate cake! Best I have ever made!'),
 (2, 4, 'Tasty, but needed more seasoning.'),
