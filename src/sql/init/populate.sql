@@ -6,14 +6,6 @@ VALUES
 (CURRENT_TIMESTAMP, 'jamieoliver', 'jamie@example.com', 'healthychef');
 
 
-INSERT INTO Categories (name) 
-VALUES 
-('Dessert'),
-('Main Course'),
-('Appetizer'),
-('Beverage');
-
-
 INSERT INTO Recipes (name, user_id) 
 VALUES 
 ('Chocolate Cake', 1),
@@ -46,3 +38,12 @@ VALUES
 (3, 1, 'Classic apple pie, my go-to recipe.'),
 (2, 3, 'Caesar salad was good, but dressing was a bit bland.'),
 (1, 2, 'Perfect Mojito, refreshing and delicious!');
+
+
+INSERT INTO Ratings (recipe_id, user_id, score) 
+VALUES 
+(1, 1, 10),
+(2, 3, 9),
+(3, 1, 8),
+(2, 3, 5),
+(1, 2, 7);

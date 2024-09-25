@@ -1,4 +1,4 @@
-SELECT * FROM Users
-LEFT JOIN Recipes
-ON Users.user_id = Recipes.user_id
-WHERE Users.user_id = 1;
+SELECT * FROM Recipes
+INNER JOIN Reviews
+ON Recipes.recipe_id = Reviews.recipe_id
+WHERE Recipes.user_id = 1;
