@@ -1,6 +1,7 @@
 CREATE TABLE Recipes (
     recipe_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(150) NOT NULL,
+    category VARCHAR(50) NOT NULL,
     user_id INT,
     trending BOOLEAN,
     FOREIGN KEY (user_id)
