@@ -47,3 +47,31 @@ VALUES
 (3, 1, 8),
 (2, 3, 5),
 (1, 2, 7);
+
+
+INSERT INTO Favorites (user_id, recipe_id)
+VALUES
+(1, 2),
+(2, 1),
+(3, 3),
+(1, 5),
+(4, 4);
+
+
+INSERT INTO Chefs (since, user_id)
+VALUES
+(CURRENT_TIMESTAMP, 1),  -- chefjohn
+(CURRENT_TIMESTAMP, 2),  -- marychef
+(CURRENT_TIMESTAMP, 3);  -- gordonramsay
+ 
+-- Insert certified chefs (linking chefs to certification)
+INSERT INTO CertifiedChefs (since, chef_id)
+VALUES
+(CURRENT_TIMESTAMP, 1),  -- chefjohn certified
+(CURRENT_TIMESTAMP, 2);  -- marychef certified
+ 
+-- Insert marked reviews (only valid user IDs)
+INSERT INTO MarkedReviews (review_id, user_id)
+VALUES
+(1, 1),  -- User 1 marks their own review
+(2, 3);  -- User 3 marks their own review
