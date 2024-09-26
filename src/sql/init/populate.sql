@@ -8,7 +8,7 @@ VALUES
 
 INSERT INTO Recipes (name, category, user_id) 
 VALUES 
-('Chocolate Cake','Dessert,' 1),
+('Chocolate Cake','Dessert', 1),
 ('Grilled Salmon','Main Course', 2),
 ('Apple Pie', 'Dessert', 3),
 ('Caesar Salad','Appetizer', 4),
