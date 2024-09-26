@@ -1,7 +1,5 @@
 -- List all users and their favorite recipes
-SELECT u.username, 
-       GROUP_CONCAT(r.name SEPARATOR ', ') AS favorite_recipes
-FROM Favorites f
-JOIN Users u ON f.user_id = u.user_id
-JOIN Recipes r ON f.recipe_id = r.recipe_id
-GROUP BY u.username;
+SELECT * FROM Favorites
+INNER JOIN Users ON Users.user_id = Favorites.user_id
+INNER JOIN Recipes ON Recipes.recipe_id = Favorites.recipe_id
+GROUP BY Users.username;
