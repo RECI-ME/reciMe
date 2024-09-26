@@ -6,13 +6,13 @@ VALUES
 (CURRENT_TIMESTAMP, 'jamieoliver', 'jamie@example.com', 'healthychef');
 
 
-INSERT INTO Recipes (name, user_id) 
+INSERT INTO Recipes (name, category, user_id) 
 VALUES 
-('Chocolate Cake', 1),
-('Grilled Salmon', 2),
-('Apple Pie', 3),
-('Caesar Salad', 4),
-('Mojito', 1);
+('Chocolate Cake','Dessert,' 1),
+('Grilled Salmon','Main Course', 2),
+('Apple Pie', 'Dessert', 3),
+('Caesar Salad','Appetizer', 4),
+('Mojito', 'Beverage',1);
 
 
 INSERT INTO Ingredients (recipe_id, name) 
