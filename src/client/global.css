@@ -1,3 +1,8 @@
+@font-face {
+  font-family: instagramSans;
+  src: url(../../fonts/Instagram\ Sans.ttf);
+}
+
 :root {
     --primary:    #db4a2b;
     --secondary:  #ffffff;
@@ -16,7 +21,8 @@ body {
     overflow-x: hidden;
     background: var(--background);
     color: var(--text_color);
-    font-size: 100%;
+    font-size: 1svw;
+    font-family: instagramSans;
 }
 
 .cursor {
