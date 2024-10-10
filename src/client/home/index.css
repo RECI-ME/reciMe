@@ -141,8 +141,7 @@ div#feed div.recipe {
 
     width: 96svw;
     max-width: 1200px;
-    height: 60svh; 
-    max-height: 1000px;
+    aspect-ratio: 3 / 2;
 
     background: var(--secondary);
 
