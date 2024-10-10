@@ -24,8 +24,7 @@ div#dashboard {
     height: 100svh;
 
     background: var(--primary);
-    color: var(--secondary);
-    text-align: center;
+    color: var(--background);
 }
 
 div#dashboard div#profile_header {
@@ -56,13 +55,32 @@ div#dashboard div#dashboard_menu {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
 div#dashboard div#dashboard_menu a {
     padding: 2svw 1svh;
+    padding-left: 0;
     width: 80%;
+}
+
+div#dashboard div#dashboard_menu a div{
+    display: flex;
+    flex-direction: center;
+    justify-content: start;
+    align-items: center;
+}
+
+
+div#dashboard div#dashboard_menu a div img {
+    width: 30%;
+    max-width: 50px;
+    aspect-ratio: 1 / 1;
+}
+
+div#dashboard div#dashboard_menu a div p {
+    margin-left: 10%;
 }
 
 
@@ -79,7 +97,10 @@ div#center_logo {
 }
 
 div#center_logo img#logo {
-    width: 80%;
+    height: 10svh;
+    max-height: 100px;
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
 }
 
 div#banner {
