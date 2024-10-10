@@ -140,7 +140,7 @@ div#feed div.recipe {
     flex-wrap: wrap;
 
     width: 96svw;
-    max-width: 1200px;
+    max-width: 800px;
     aspect-ratio: 3 / 2;
 
     background: var(--secondary);
