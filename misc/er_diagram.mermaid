@@ -1,0 +1,17 @@
+---
+title: ReciMe ER Diagram
+---
+erDiagram
+    Users ||..o| Chefs :ISA
+    Users ||..o{ Recipes :posts
+    Users ||..o{ Reviews :writes
+    Users ||..o{ Reviews :likes
+    Users ||..o{ Favorites :has
+    Users ||..o{ Ratings : gives
+    Recipes ||..o| Favorites :ISA
+    Recipes ||..o{ Reviews :has
+    Recipes ||..o{ Ratings :has
+    Recipes||..o{ Ingridients :has
+    Reviews ||..o| MarkedReviews :ISA
+    Users ||..o{ MarkedReviews :marks
+    Chefs ||..o| CertifiedChefs :ISA   
