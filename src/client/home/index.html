@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>ReciMe | Home</title>
+        <link rel="icon" type="image/png" href="../../../assets/recimelogo.png">
         <link rel="stylesheet" href="../global.css">
         <link rel="stylesheet" href="index.css">
         <script src="index.js" defer></script>        
     </head>
 
     <body>
+        <!-- Dashboard blanket for closing when clicking outside -->
         <div id="dashboard_blanket" class="hide"></div>
+
+        <!-- Dashboard with profile and menu -->
         <div id="dashboard" class="hide">
             <div class="cursor" id="profile_header">
-                <img src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
+                <img src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px" />
                 <p>my username</p>
             </div>
             <hr>
             <div id="dashboard_menu">
-                <a href="">
-                    <div>
-                        <img src="../../../assets/search_icon.png" alt="Search Icon" width="30px"/>
-                        <p>Search</p>
+                <div id="search_toggle">
+                    <img src="../../../assets/search_icon.png" alt="Search Icon" width="30px"/>
+                    <p id="search_text">Search</p>
+            
+                    <!-- Search input directly inside this div -->
+                    <div id="search_area" class="hide">
+                        <input type="text" id="search_input" placeholder="Search..." />
                     </div>
-                </a>
+                </div>
+            
                 <a href="">
                     <div>
                         <img src="../../../assets/my_recipes_icon.png" alt="My Recipes Icon" width="30px"/>
@@ -33,27 +42,30 @@
                         <p>Favorites</p>
                     </div>
                 </a>
-            </div>
+            </div>            
             <footer id="imprint">
                 <a href="../../../imprint/imprint.html">Legal Information</a>
             </footer>
         </div>
 
+        <!-- Center logo -->
         <div id="center_logo">
             <img class="cursor" id="logo" src="../../../assets/logo_horizontal.png" alt="ReciMe Logo" width="500px" />
         </div>
+
+        <!-- Banner -->
         <div id="banner">
             <div class="cursor" id="profile">
-                <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
+                <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px" />
                 <p class="username">my username</p>
             </div>
         </div>
-        </div>
 
+        <!-- Feed with recipe entries -->
         <div id="feed">
             <div class="recipe">
                 <div class="cursor chef">
-                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
+                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px" />
                     <p class="username">username</p>
                     <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
                 </div>
@@ -72,29 +84,13 @@
                     </button>
                 </div>
             </div>
-            <div class="recipe">
-                <div class="cursor chef">
-                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
-                    <p class="username">username</p>
-                    <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
-                </div>
-                <div class="images">
-                    <img class="recipe_showcase" src="" alt="" />
-                </div>
-                <div class="reactions">
-                    <button class="cursor">
-                        <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
-                    </button>
-                    <button class="cursor">
-                        <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
-                    </button>
-                    <button class="cursor">
-                        <img src="../../../assets/mark_icon.png" alt="Mark Icon" width="30px" height="30px" />
-                    </button>
-                </div>
+
+            <!-- Additional recipes... -->
+
+            <!-- Placeholder for search results -->
+            <div id="search_results" class="hide">
+                <p>No results found</p>
             </div>
         </div>
-
-
     </body>
 </html>
