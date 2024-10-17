@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - ReciMe</title>
+    <link rel="stylesheet" href="../login/css/styles.css">
+    <link rel="icon" href="../login/images/logo.png" type="image/png"> 
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="../login/images/logo.png" alt="Recime Logo">
+        </div>
+
+        <div class="welcome-message">
+            <h2 id="welcome-text">Welcome Back to ReciMe!</h2>
+        </div>
+
+        <div class="forms">
+            <div class="form" id="login-form">
+                <form action="../login/backend/login.php" method="POST">
+                    <input type="text" name="username" placeholder="Username" required>
+                    
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password-login" placeholder="Password" required>
+                        <i id="toggle-password" class="eye-icon closed-eye"></i>
+                    </div>
+
+                    <button type="submit">Login</button>
+                </form>
+                <div class="form-options">
+                    <a href="#" id="forgot-password-link">Forgot Password?</a>
+                    <a href="#" id="switch-to-signup">New to ReciMe? Create Account</a> 
+                </div>
+            </div>
+
+            <div class="form hidden" id="forgot-password-form">
+                <form action="../login/backend/reset-password.php" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email to reset password" required>
+                    <button type="submit">Send Reset Link</button>
+                </form>
+                <div class="form-options">
+                    <a href="#" id="back-to-login">Back to Login</a>
+                </div>
+            </div>
+
+            <div class="form hidden" id="signup-form">
+                <form action="../login/backend/signup.php" method="POST">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="username" placeholder="Username" required>
+                    
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password-signup" placeholder="Password" required>
+                        <i id="toggle-password-signup" class="eye-icon closed-eye"></i>
+                    </div>
+                    <div class="password-wrapper">
+                        <input type="password" name="confirm_password" id="confirm-password-signup" placeholder="Confirm Password" required>
+                        <i id="toggle-confirm-password-signup" class="eye-icon closed-eye"></i>
+                    </div>
+
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../login/js/scripts.js"></script>
+</body>
+</html>
