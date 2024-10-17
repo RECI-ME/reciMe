@@ -156,3 +156,27 @@ form button:hover {
         width: 80px;
     }
 }
+
+.error-message {
+    color: var(--primary);
+    font-size: 0.9rem;
+    margin: 10px 0;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.error-message:before {
+    content: '* ';
+    color: var(--primary);
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
