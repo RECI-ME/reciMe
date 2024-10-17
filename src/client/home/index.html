@@ -6,7 +6,20 @@
 
         <link rel="stylesheet" href="../global.css">
         <link rel="stylesheet" href="index.css">
-        <script src="index.js" defer></script>        
+        <script src="index.js" defer></script>
+        <script>
+            let liked = false;
+
+            function toggleLike(event) {
+                const likeIcon = event.currentTarget.querySelector("img");
+                if (liked) {
+                    likeIcon.src = "../../../assets/like_icon.png";
+                } else {
+                    likeIcon.src = "../../../assets/like_icon_filled.png";
+                }
+                liked = !liked;
+            }
+        </script>        
     </head>
 
     <body>
@@ -46,6 +59,9 @@
             <img class="cursor" id="logo" src="../../../assets/logo_horizontal.png" alt="ReciMe Logo" width="500px" />
         </div>
         <div id="banner">
+            <div id="login"> 
+                <a href="../../../login/index.html" id="loginButton">Login</a>
+            </div>
             <div class="cursor" id="profile">
                 <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
                 <p class="username">my username</p>
@@ -64,7 +80,7 @@
                     <img class="recipe_showcase" src="" alt="" />
                 </div>
                 <div class="reactions">
-                    <button class="cursor">
+                    <button class="cursor" onclick="toggleLike(event)">
                         <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
                     </button>
                     <button class="cursor">
@@ -85,7 +101,7 @@
                     <img class="recipe_showcase" src="" alt="" />
                 </div>
                 <div class="reactions">
-                    <button class="cursor">
+                    <button class="cursor" onclick="toggleLike(event)">
                         <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
                     </button>
                     <button class="cursor">
@@ -97,7 +113,6 @@
                 </div>
             </div>
         </div>
-
 
     </body>
 </html>
