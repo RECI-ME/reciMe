@@ -1,6 +1,5 @@
 <?php
-include('reciMe/src/php/Reviews_n_Delete/db.php');
-//  database connection
+include('../../server/db.php'); // Include the database connection
 
 // Fetch all recipes along with the username of the user who posted them
 try {
@@ -76,13 +75,21 @@ try {
                     <p class="username"><?php echo htmlspecialchars($recipe['username']); ?></p>
                     <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
                 </div>
+                <div class="recipe-name">
+                    <a href="../View_Recipe/view_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">
+                        <?php echo htmlspecialchars($recipe['name']); ?>
+                    </a>
+                </div>
                 <div class="images">
                     <!-- Display the recipe image if available -->
                     <?php if (!empty($recipe['image_path'])): ?>
-                        <!-- Adjust the path to the recipe image -->
-                        <img class="recipe_showcase" src="<?php echo htmlspecialchars($recipe['image_path']); ?>" alt="Recipe Image" />
+                        <a href="../View_Recipe/view_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">
+                            <img class="recipe_showcase" src="<?php echo '../../../' . htmlspecialchars($recipe['image_path']); ?>" alt="Recipe Image" />
+                        </a>
                     <?php else: ?>
-                        <img class="recipe_showcase" src="" alt="" />
+                        <a href="../View_Recipe/view_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">
+                            <img class="recipe_showcase" src="../../../assets/default_recipe_image.png" alt="Default Recipe Image" />
+                        </a>
                     <?php endif; ?>
                 </div>
                 <div class="reactions">
@@ -93,10 +100,11 @@ try {
                     <button class="cursor review-button" data-recipe-id="<?php echo $recipe['recipe_id']; ?>">
                         <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
                     </button>
-                    <!-- Delete Button with dynamic recipe ID -->
-                    <button class="cursor" onclick="deleteRecipe(<?php echo $recipe['recipe_id']; ?>)">
-                        <img src="../../../assets/mark_icon.png" alt="Mark Icon" width="30px" height="30px" />
+                     
+                    <button class="cursor" >
+                        <img src="../../../assets/mark_icon.png" alt="Report Icon" width="30px" height="30px" />
                     </button>
+                    <!-- Deletion functionality can be added later if needed -->
                 </div>
             </div>
             <?php endforeach; ?>
@@ -112,7 +120,5 @@ try {
                 </div>
             </div>
         </div>
-        
-        <!-- JavaScript code is in index.js -->
     </body>
 </html>

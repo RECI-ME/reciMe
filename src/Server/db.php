@@ -2,7 +2,7 @@
 // db.php: Database connection script
 //change $host, $dbname, $username, $password
 $host = 'localhost';
-//$port = '3307'; // Ensure this is the correct MySQL port by default it's 3306
+//$port = '3308'; // Ensure this is the correct MySQL port by default it's 3306
 $dbname = 'lorem_ipsum'; 
 $username = ''; 
 $password = ''; // 

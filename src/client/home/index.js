@@ -28,7 +28,7 @@ window.onload = function() {
 
 // Function to fetch reviews dynamically
 function fetchReviews(recipeId) {
-    fetch(`reviews.php?recipe_id=${recipeId}`)
+    fetch(`../../../server/reviews.php?recipe_id=${recipeId}`)
         .then(response => response.json())
         .then(data => {
             if (data.error) {
