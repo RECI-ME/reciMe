@@ -119,11 +119,11 @@ form button:hover {
 }
 
 .closed-eye {
-    background-image: url('../images/hide.png');
+    background-image: url('../../../assets/hide.png');
 }
 
 .open-eye {
-    background-image: url('../images/show.png');
+    background-image: url('../../../assets/show.png');
 }
 
 .form-options {
