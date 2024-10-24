@@ -1,19 +1,122 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* DASHBOARD */
+div#dashboard_blanket {
+    position: fixed;
+    top: 0;
+    z-index: 9;
+
+    width: 100svw;
+    height: 100svh;
+
+    background: #000000dd;
+    backdrop-filter: blur(8px);
+    
+}
+
+div#dashboard {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    float: left;
+
+    width: 95svw;
+    max-width: 300px;
+    height: 100svh;
+
+    background: var(--primary);
+    color: var(--background);
+}
+
+div#dashboard div#profile_header {
+    margin-top: 5svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#dashboard div#profile_header img {
+    width: 10svw;
+    max-width: 100px;
+    min-width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 60svw;
+}
+
+div#dashboard div#profile_header p {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+div#dashboard div#dashboard_menu {
+    margin-top: 2svh;
+    margin-bottom: 2svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+div#dashboard div#dashboard_menu a {
+    padding: 2svw 1svh;
+    padding-left: 0;
+    width: 80%;
+}
+
+div#dashboard div#dashboard_menu a div{
+    display: flex;
+    flex-direction: center;
+    justify-content: start;
+    align-items: center;
+}
+
+
+div#dashboard div#dashboard_menu a div img {
+    width: 30%;
+    max-width: 50px;
+    aspect-ratio: 1 / 1;
+    filter: invert(1);
+}
+
+div#dashboard div#dashboard_menu a {
+    text-decoration: none;
+}
+
+div#dashboard div#dashboard_menu a div p {
+    margin-left: 10%;
+
+    color: var(--secondary);
+    font-size: 150%;
+}
+
+div#dashboard footer#imprint {
+    position: fixed;
+    bottom: 0;
+
+    padding-bottom: 2svh;
+    padding-left: 2svw;
+
+}
+
+div#dashboard footer#imprint a {
+    color: var(--secondary);
 }
 
 .banner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100vw; /* Corrected from 100svw */
-    height: 10vh; /* Corrected from 10svh */
+
+    width: 100svw;
+    height: 10svh;
     max-height: 100px;
-    padding-top: 1vh; /* Corrected from 1svh */
-    padding-bottom: 1vh; /* Corrected from 1svh */
+
+    padding-top: 1svh;
+    padding-bottom: 1svh;
+
     background: var(--primary);
+
     color: var(--secondary);
 }
 
@@ -44,8 +147,59 @@ body {
 }
 
 #filter-rating {
-    width: 200px; /* Adjust slider width */
+    -webkit-appearance: none;
+    width: 200px;
+    height: 8px;
+    background: linear-gradient(to right, #FFD700 0%, #FFD700 0%, #ffffff 0%, #ffffff 100%);
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
 }
+
+#filter-rating::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none; /* No border to make the thumb blend into the track */
+    z-index: 2; /* Thumb on top */
+    position: relative;
+}
+
+#filter-rating::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#filter-rating::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Hide the default track background */
+#filter-rating::-webkit-slider-runnable-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+#filter-rating::-moz-range-track {
+    background: transparent;
+}
+
+#filter-rating::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
 
 #fork-emoji-display {
     margin-top: 5px;
@@ -58,8 +212,8 @@ body {
 #apply-filters {
     padding: 5px 10px;
     border: none;
-    background-color: #28a745;
-    color: white;
+    background-color: var(--background);
+    color: var(--primary); /* Set text color to --primary */
     border-radius: 5px;
     cursor: pointer;
 }
@@ -74,53 +228,10 @@ body {
 
 .logo {
     max-width: 80px; /* Made it a little smaller */
+    margin-right: 50px;
 }
 
-.user-icon {
-    margin-right: 10px; /* Space from the edge */
+.profile {
+    padding-left: 50px; /* Space from the edge */
     cursor: pointer;
-}
-
-/* Dashboard Menu */
-.hidden {
-    display: none; /* Use this to hide elements */
-}
-
-.dashboard-menu {
-    position: absolute;
-    top: 10vh; /* Adjust as needed to position it */
-    right: 10px; /* Adjust as needed for spacing */
-    background: white; /* Change to your desired background color */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Make sure it's on top */
-    padding: 10px;
-}
-
-.dashboard-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.dashboard-menu li {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.dashboard-menu li:hover {
-    background: #f0f0f0; /* Change background on hover */
-}
-
-/* Overlay */
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 999; /* Below dashboard menu */
-    display: none; /* Hidden by default */
 }
