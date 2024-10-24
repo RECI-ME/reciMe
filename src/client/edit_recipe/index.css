@@ -1,0 +1,18 @@
+div#center_form {
+    top: 10svh;
+    width: 100svw;
+    height: 90svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    margin-bottom: 3svh;
+}
