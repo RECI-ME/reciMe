@@ -13,8 +13,15 @@
         <a href="../edit_recipe/index.php">Edit Recipes</a>
 
         <div id="center_form">
-            <form action="../../server/post_recipe.php" method="post">
-                <input type="hidden" name="user_id" value="1" />
+          <form action="../../server/post_recipe.php" method="post">
+                <?php
+                    $user_id = $_COOKIE["recime_user_id"];
+                    if (!isset($user_id)) {
+                        echo "user not logged in!"
+                    } else {
+                        echo `<input type="hidden" name="user_id" value="$user_id" />`
+                    }
+                ?>
 
                 <label for="name">Recipe Name</label>
                 <input name="name" type="text" />
