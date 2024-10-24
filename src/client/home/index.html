@@ -114,6 +114,16 @@
                 </div>
             </div>
         </div>
+        
+        <div id="cookieConsent">
+           <p>This website uses cookies to ensure you get the best experience. 
+              <button id="acceptCookies">Accept</button>
+          </p>
+        </div>
 
-    </body>
+        <script>
+            // Check login status using PHP
+            var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>; 
+        </script>
+   </body>
 </html>
