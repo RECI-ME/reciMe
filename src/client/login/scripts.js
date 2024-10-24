@@ -2,8 +2,8 @@ function showErrorMessage(formType, message) {
     var errorElement = document.getElementById(formType + '-error-message');
     errorElement.textContent = message;
     errorElement.classList.remove('hidden');
-    errorElement.style.color = '#db4a2b'; // Change to match the link color
-    errorElement.style.animation = 'fadeIn 0.5s'; // Add animation
+    errorElement.style.color = '#db4a2b'; 
+    errorElement.style.animation = 'fadeIn 0.5s'; 
 }
 
 function clearErrorMessage(formType) {

@@ -61,7 +61,7 @@
         </div>
         <div id="banner">
             <div id="login"> 
-                <a href="../../../login/index.html" id="loginButton">Login</a>
+                <a href="../login/index.html" id="loginButton">Login</a>
             </div>
             <div class="cursor" id="profile">
                 <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
@@ -114,6 +114,16 @@
                 </div>
             </div>
         </div>
+        
+        <div id="cookieConsent">
+           <p>This website uses cookies to ensure you get the best experience. 
+              <button id="acceptCookies">Accept</button>
+          </p>
+        </div>
 
-    </body>
+        <script>
+            // Check login status using PHP
+            var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>; 
+        </script>
+   </body>
 </html>
