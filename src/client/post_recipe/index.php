@@ -13,7 +13,7 @@
         <a href="../edit_recipe/index.php">Edit Recipes</a>
 
         <div id="center_form">
-          <form action="../../server/post_recipe.php" method="post">
+          <form action="../../server/post_recipe.php" method="post" enctype="multipart/form-data">
                 <?php
                     $user_id = $_COOKIE["recime_user_id"];
                     if (!isset($user_id)) {
@@ -25,6 +25,12 @@
 
                 <label for="name">Recipe Name</label>
                 <input name="name" type="text" />
+
+                <label for="image">Image</label>
+                <input type="file" name="image" />
+
+                <label for="description">Description</label>
+                <textarea></textarea>
 
                 <label for="category">Category</label>
                 <select name="category" > 
@@ -46,14 +52,14 @@
                             echo "server conn error!";
                         }
 
-                        $categories_result = $conn->query("SELECT name FROM Categories");
+                        $categories_result = $conn->query("SELECT * FROM Categories");
 
                         if ($categories_result->num_rows == 0) {
                             echo "couldn't get categories from server!";
                         }
 
                         while ($row = $categories_result->fetch_assoc()) {
-                            echo "<option value='" . $row["name"] . "'>" . $row["name"] . "</option>";
+                            echo "<option value='" . $row["category_id"] . "'>" . $row["name"] . "</option>";
                         }
 
 

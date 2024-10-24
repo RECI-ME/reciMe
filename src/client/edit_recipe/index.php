@@ -64,6 +64,7 @@
                         $recipe_category = $row["category"];
 
                         echo `
+                            <input type="hidden" name="user_id" value="$user_id" />
                             <input type="hidden" name="recipe_id" value="$recipe_id" />
                             <label for="name">Name</label>
                             <input type="text" name="name" value='$name' />

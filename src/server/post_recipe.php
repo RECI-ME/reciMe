@@ -19,26 +19,20 @@ if ($conn->connect_error) {
     echo "couldn't connect to sql server";
 }
 
-$query_result = $conn->query("SELECT category_id FROM Categories WHERE Categories.name = '" . $_POST["category"] . "'");
-if ($query_result->num_rows == 0) {
-    echo "no such category exists: " . $_POST["category"];
-}
+$image_dir = "../../user_images/$user_id/" . $_POST["name"] . "/";
+$file_name = basename($_FILES["image"]["name"]);
 
-$category_id = -1;
-
-while ($row = $query_result->fetch_assoc()) {
-    $category_id = $row["category_id"];
-    break;
-}
-
-if ($category_id == -1) {
-    echo "no such category exists!";
+$upload_err = move_uploaded_file($_FILES["image"]["name"], $image_dir . $file_name);
+if (!$upload_err) {
+    echo "failed to upload file!";
 }
 
 
-$query_result = $conn->query("INSERT INTO Recipes(name, category, trending, user_id) VALUES("
+$query_result = $conn->query("INSERT INTO Recipes(name, image, description, category, trending, user_id) VALUES("
     . "'" . $_POST["name"] . "', "
-    . $category_id . ", "
+    . "'$file_name', " 
+    . "'" . $_POST["description"] . ", "
+    . $_POST["category"] . ", "
     . "NULL, "
     . $_POST["user_id"] . ")"
 );
