@@ -3,34 +3,42 @@
     <head>
         <title>ReciMe | Home</title>
         <link rel="icon" type="image/png" href="../../../assets/recimelogo.png">
+
         <link rel="stylesheet" href="../global.css">
-        <link rel="stylesheet" href="index.css">
-        <script src="index.js" defer></script>        
+        <link rel="stylesheet" href="./index.css">
+      
+        <script src="./index.js" defer></script>
+        <script>
+            let liked = false;
+
+            function toggleLike(event) {
+                const likeIcon = event.currentTarget.querySelector("img");
+                if (liked) {
+                    likeIcon.src = "../../../assets/like_icon.png";
+                } else {
+                    likeIcon.src = "../../../assets/like_icon_filled.png";
+                }
+                liked = !liked;
+            }
+        </script>        
     </head>
 
     <body>
-        <!-- Dashboard blanket for closing when clicking outside -->
         <div id="dashboard_blanket" class="hide"></div>
-
-        <!-- Dashboard with profile and menu -->
         <div id="dashboard" class="hide">
             <div class="cursor" id="profile_header">
-                <img src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px" />
+                <img src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
                 <p>my username</p>
             </div>
             <hr>
             <div id="dashboard_menu">
-                <div id="search_toggle">
-                    <img src="../../../assets/search_icon.png" alt="Search Icon" width="30px"/>
-                    <p id="search_text">Search</p>
-            
-                    <!-- Search input directly inside this div -->
-                    <div id="search_area" class="hide">
-                        <input type="text" id="search_input" placeholder="Search..." />
-                    </div>
-                </div>
-            
                 <a href="">
+                    <div>
+                        <img src="../../../assets/search_icon.png" alt="Search Icon" width="30px"/>
+                        <p>Search</p>
+                    </div>
+                </a>
+                <a href="../post_recipe/index.php">
                     <div>
                         <img src="../../../assets/my_recipes_icon.png" alt="My Recipes Icon" width="30px"/>
                         <p>My Recipes</p>
@@ -42,32 +50,30 @@
                         <p>Favorites</p>
                     </div>
                 </a>
-            </div>            
+            </div>
             <footer id="imprint">
                 <a href="../../../imprint/imprint.html">Legal Information</a>
             </footer>
         </div>
 
-        <!-- Center logo -->
         <div id="center_logo">
-            <a href="../../../index.html">
             <img class="cursor" id="logo" src="../../../assets/logo_horizontal.png" alt="ReciMe Logo" width="500px" />
-            </a>
         </div>
-
-        <!-- Banner -->
         <div id="banner">
+            <div id="login"> 
+                <a href="../login/index.html" id="loginButton">Login</a>
+            </div>
             <div class="cursor" id="profile">
-                <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px" />
+                <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
                 <p class="username">my username</p>
             </div>
         </div>
+        </div>
 
-        <!-- Feed with recipe entries -->
         <div id="feed">
             <div class="recipe">
                 <div class="cursor chef">
-                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px" />
+                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
                     <p class="username">username</p>
                     <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
                 </div>
@@ -75,7 +81,7 @@
                     <img class="recipe_showcase" src="" alt="" />
                 </div>
                 <div class="reactions">
-                    <button class="cursor">
+                    <button class="cursor" onclick="toggleLike(event)">
                         <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
                     </button>
                     <button class="cursor">
@@ -86,13 +92,43 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Additional recipes... -->
-
-            <!-- Placeholder for search results -->
-            <div id="search_results" class="hide">
-                <p>No results found</p>
+            <div class="recipe">
+                <div class="cursor chef">
+                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
+                    <p class="username">username</p>
+                    <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
+                </div>
+                <div class="images">
+                    <img class="recipe_showcase" src="" alt="" />
+                </div>
+                <div class="reactions">
+                    <button class="cursor" onclick="toggleLike(event)">
+                        <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
+                    </button>
+                    <button class="cursor">
+                        <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
+                    </button>
+                    <button class="cursor">
+                        <img src="../../../assets/mark_icon.png" alt="Mark Icon" width="30px" height="30px" />
+                    </button>
+                </div>
             </div>
         </div>
-    </body>
+  
+        <!-- Placeholder for search results -->
+        <div id="search_results" class="hide">
+            <p>No results found</p>
+        </div>
+        
+        <div id="cookieConsent">
+           <p>This website uses cookies to ensure you get the best experience. 
+              <button id="acceptCookies">Accept</button>
+          </p>
+        </div>
+
+        <script>
+            // Check login status using PHP
+            var isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>; 
+        </script>
+   </body>
 </html>
