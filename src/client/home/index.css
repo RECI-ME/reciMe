@@ -1,35 +1,27 @@
-/* DASHBOARD */
 div#dashboard_blanket {
     position: fixed;
     top: 0;
     z-index: 9;
-
-    width: 100svw;
-    height: 100svh;
-
+    width: 100vw;
+    height: 100vh;
     background: #000000dd;
     backdrop-filter: blur(8px);
-    
 }
 
 div#dashboard {
     position: fixed;
     top: 0;
     z-index: 10;
-
     float: left;
-
-    width: 95svw;
+    width: 95vw;
     max-width: 300px;
-    height: 100svh;
-
+    height: 100vh;
     background: var(--primary);
     color: var(--background);
 }
 
 div#dashboard div#profile_header {
-    margin-top: 5svh;
-
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,11 +29,11 @@ div#dashboard div#profile_header {
 }
 
 div#dashboard div#profile_header img {
-    width: 10svw;
+    width: 10vw;
     max-width: 100px;
     min-width: 50px;
     aspect-ratio: 1 / 1;
-    border-radius: 60svw;
+    border-radius: 60%;
 }
 
 div#dashboard div#profile_header p {
@@ -50,9 +42,8 @@ div#dashboard div#profile_header p {
 }
 
 div#dashboard div#dashboard_menu {
-    margin-top: 2svh;
-    margin-bottom: 2svh;
-
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -60,18 +51,17 @@ div#dashboard div#dashboard_menu {
 }
 
 div#dashboard div#dashboard_menu a {
-    padding: 2svw 1svh;
+    padding: 2vw 1vh;
     padding-left: 0;
     width: 80%;
 }
 
-div#dashboard div#dashboard_menu a div{
+div#dashboard div#dashboard_menu a div {
     display: flex;
-    flex-direction: center;
+    flex-direction: row;
     justify-content: start;
     align-items: center;
 }
-
 
 div#dashboard div#dashboard_menu a div img {
     width: 30%;
@@ -86,7 +76,6 @@ div#dashboard div#dashboard_menu a {
 
 div#dashboard div#dashboard_menu a div p {
     margin-left: 10%;
-
     color: var(--secondary);
     font-size: 150%;
 }
@@ -94,32 +83,26 @@ div#dashboard div#dashboard_menu a div p {
 div#dashboard footer#imprint {
     position: fixed;
     bottom: 0;
-
-    padding-bottom: 2svh;
-    padding-left: 2svw;
-
+    padding-bottom: 2vh;
+    padding-left: 2vw;
 }
 
 div#dashboard footer#imprint a {
     color: var(--secondary);
 }
 
-
-/* BANNER */
 div#center_logo {
     position: absolute;
     z-index: 2;
-
-    width: 100svw;
-    height: 10svh;
-
+    width: 100vw;
+    height: 10vh;
     display: flex;
     justify-content: center;
 }
 
 div#center_logo img#logo {
-    margin-top: 1svh;
-    height: 10svh;
+    margin-top: 1vh;
+    height: 10vh;
     max-height: 100px;
     aspect-ratio: 16 / 10;
     object-fit: contain;
@@ -128,27 +111,21 @@ div#center_logo img#logo {
 div#banner {
     display: flex;
     align-items: center;
-
-    width: 100svw;
-    height: 10svh;
+    width: 100vw;
+    height: 10vh;
     max-height: 100px;
-
-    padding-top: 1svh;
-    padding-bottom: 1svh;
-
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     background: var(--primary);
-
     color: var(--secondary);
 }
 
 div#banner div#profile {
-    margin-left: 2svw;
-
+    margin-left: 2vw;
     z-index: 3;
     display: flex;
     flex-direction: row;
     align-items: center;
-
     font-size: 150%;
 }
 
@@ -156,54 +133,39 @@ div#banner div img {
     width: 30%;
     max-width: 50px;
     aspect-ratio: 1 / 1;
-    border-radius: 60svw;
+    border-radius: 60%;
 }
 
 div#banner div p {
     margin-left: 5px;
-
     font-weight: bold;
 }
 
-
-/* FEED */
 div#feed {
     display: block;
-
-    width: 100svw;
-    height: 90svh;
+    width: 100vw;
+    height: 90vh;
     overflow-y: scroll;
-
     border: 1px solid var(--background);
 }
 
-
-/* RECIPES */
 div#feed div.recipe {
     margin: auto;
-    margin-top: 5svh;
-
-    padding: 2svh 3svw;
-
+    margin-top: 5vh;
+    padding: 2vh 3vw;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
-    width: 96svw;
+    width: 96vw;
     max-width: 800px;
     aspect-ratio: 3 / 2;
-
     background: var(--secondary);
-
     border: 1px solid var(--secondary);
     border-radius: 50px;
 }
 
-
-/* CHEFS */
 div#feed div.recipe div.chef {
     flex: 1;
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -213,39 +175,32 @@ div#feed div.recipe div.chef img.avatar {
     width: 30%;
     max-width: 50px;
     aspect-ratio: 1 / 1;
-    border-radius: 60svw;
+    border-radius: 60%;
 }
 
 div#feed div.recipe div.chef p.username {
     margin-left: 5px;
-
     font-weight: bold;
 }
 
 div#feed div.recipe div.chef img.chef_hat {
     margin-left: 10px;
-
     width: 30%;
     max-width: 50px;
     aspect-ratio: 1 / 1;
 }
 
-
-/* IMAGES */
-div#feed div.recipe div.images{
+div#feed div.recipe div.images {
     flex: 3;
-    border: 1px solid green;
+    border: 1px solid #ffffff;
 }
 
 div#feed div.recipe div.images img.recipe_showcase {
     border: 1px solid black;
 }
 
-
-/* REACTIONS */
-div#feed div.recipe div.reactions{
+div#feed div.recipe div.reactions {
     flex: 1;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -262,7 +217,6 @@ div#feed div.recipe div.reactions button img {
     height: 100%;
     max-height: 50px;
 }
-
 
 /* Recipe Name Link */
 div.recipe-name {
@@ -318,4 +272,68 @@ div.recipe-detail form textarea {
 
 div.recipe-detail form input[type="submit"] {
     margin-top: 10px;
+
+#login {
+    position: absolute; 
+    top: 40px;
+    right: 20px; 
+    z-index: 3; 
+}
+
+#login a {
+    text-decoration: none; 
+    color: #ffffff;
+    font-weight: bold; 
+    font-size: 120%;
+    padding: 10px 15px; 
+    border: 2px solid rgb(255, 128, 0);
+    border-radius: 25px; 
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px #fff5da, 0 0 30px #fff5da; 
+    transition: all 0.3s ease; 
+}
+
+#login a:hover {
+    background-color: #db4a2b; 
+}
+#cookieConsent {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    background-color: #FF7F50; 
+    color: #fff;
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+#cookieConsent p {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+#cookieConsent button {
+    background-color: #fff;
+    color: #FF7F50;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#cookieConsent button:hover {
+    background-color: #ffcc99; 
+    color: #333;
 }

@@ -1,5 +1,9 @@
 <?php
-include('../../server/db.php'); // Include the database connection
+include('../../server/db.php'); 
+include('../../server/session.php');
+
+// Check if user is logged in using the session cookie
+checkSession(); 
 
 // Fetch all recipes along with the username of the user who posted them
 try {
@@ -14,22 +18,36 @@ try {
 <html>
     <head>
         <title>ReciMe | Home</title>
-        <!-- Adjusted the path to the favicon -->
+        
         <link rel="icon" type="image/png" href="../../../assets/recimelogo.png">
 
         <!-- Adjusted paths to CSS files -->
         <link rel="stylesheet" href="../global.css">
-        <link rel="stylesheet" href="index.css">
-        <script src="index.js" defer></script>        
+        <link rel="stylesheet" href="./index.css">
+      
+        <script src="./index.js" defer></script>
+        <script>
+            let liked = false;
+
+            function toggleLike(event) {
+                const likeIcon = event.currentTarget.querySelector("img");
+                if (liked) {
+                    likeIcon.src = "../../../assets/like_icon.png";
+                } else {
+                    likeIcon.src = "../../../assets/like_icon_filled.png";
+                }
+                liked = !liked;
+            }
+        </script>        
     </head>
 
     <body>
         <div id="dashboard_blanket" class="hide"></div>
         <div id="dashboard" class="hide">
             <div class="cursor" id="profile_header">
-                <!-- Adjusted the path to the avatar image -->
+                <!-- Display the logged-in username from session -->
                 <img src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
-                <p>my username</p>
+                <p><?php echo htmlspecialchars($_SESSION['username']); ?></p>
             </div>
             <hr>
             <div id="dashboard_menu">
@@ -39,7 +57,7 @@ try {
                         <p>Search</p>
                     </div>
                 </a>
-                <a href="">
+                <a href="../post_recipe/index.php">
                     <div>
                         <img src="../../../assets/my_recipes_icon.png" alt="My Recipes Icon" width="30px"/>
                         <p>My Recipes</p>
@@ -61,9 +79,12 @@ try {
             <img class="cursor" id="logo" src="../../../assets/logo_horizontal.png" alt="ReciMe Logo" width="500px" />
         </div>
         <div id="banner">
+            <div id="login"> 
+                <a href="../login/index.html" id="loginButton">Login</a>
+            </div>
             <div class="cursor" id="profile">
                 <img class="avatar" src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px"  />
-                <p class="username">my username</p>
+                <p class="username"><?php echo htmlspecialchars($_SESSION['username']); ?></p>
             </div>
         </div>
 
@@ -93,32 +114,26 @@ try {
                     <?php endif; ?>
                 </div>
                 <div class="reactions">
-                    <button class="cursor">
+                    <button class="cursor" onclick="toggleLike(event)">
                         <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
                     </button>
                     <!-- Review Button with dynamic recipe ID -->
                     <button class="cursor review-button" data-recipe-id="<?php echo $recipe['recipe_id']; ?>">
                         <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
                     </button>
-                     
                     <button class="cursor" >
                         <img src="../../../assets/mark_icon.png" alt="Report Icon" width="30px" height="30px" />
                     </button>
-                    <!-- Deletion functionality can be added later if needed -->
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
-
-        <!-- Modal for displaying reviews -->
-        <div id="reviewModal" class="modal hide">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Reviews</h2>
-                <div id="reviews-container">
-                    <!-- Reviews will be dynamically loaded here -->
-                </div>
-            </div>
+        
+        <div id="cookieConsent">
+           <p>This website uses cookies to ensure you get the best experience. 
+              <button id="acceptCookies">Accept</button>
+              <!-- Nobody can reject our cookies -->
+          </p>
         </div>
-    </body>
+   </body>
 </html>

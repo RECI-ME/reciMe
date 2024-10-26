@@ -1,8 +1,12 @@
 <?php
-include('../../server/db.php');// Include database connection
+include('../../server/db.php'); // Include database connection
+include('../../server/session.php'); // Check login status
 
-// Simulate logged-in user (since login is not implemented yet)
-$logged_in_user_id = 1; // For testing purposes
+
+checkSession(); 
+
+
+$logged_in_user_id = $_SESSION['user_id'];
 
 // Get 'recipe_id' from GET parameter
 if (isset($_GET['recipe_id'])) {
@@ -26,11 +30,6 @@ try {
     $ingredientQuery->execute([$recipe_id]);
     $ingredients = $ingredientQuery->fetchAll(PDO::FETCH_COLUMN);
 
-    // Fetch logged-in user's username
-    $userQuery = $db->prepare('SELECT username FROM Users WHERE user_id = ?');
-    $userQuery->execute([$logged_in_user_id]);
-    $logged_in_username = $userQuery->fetchColumn();
-
 } catch (Exception $e) {
     die('Error fetching recipe details: ' . $e->getMessage());
 }
@@ -50,6 +49,7 @@ $is_author = ($logged_in_user_id == $recipe['user_id']);
     <div class="recipe-detail">
         <h1><?php echo htmlspecialchars($recipe['name']); ?></h1>
         <p>By <?php echo htmlspecialchars($recipe['username']); ?></p>
+        <!-- Only show edit button if the logged-in user is the author -->
         <?php if ($is_author): ?>
             <a href="edit_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">Edit Recipe</a>
         <?php endif; ?>
@@ -66,7 +66,7 @@ $is_author = ($logged_in_user_id == $recipe['user_id']);
             <?php if (!empty($recipe['image_path'])): ?>
                 <img src="<?php echo htmlspecialchars($recipe['image_path']); ?>" alt="Recipe Image" />
             <?php else: ?>
-                <img src="assets/images/default_recipe_image.png" alt="Default Recipe Image" />
+                <img src="../../../assets/default_recipe_image.png" alt="Default Recipe Image" />
             <?php endif; ?>
         </div>
 
@@ -84,13 +84,6 @@ $is_author = ($logged_in_user_id == $recipe['user_id']);
                 </div>
             </div>
         </div>
-
-        <h2>Add a Comment:</h2>
-        <form method="post" action="add_comment.php">
-            <input type="hidden" name="recipe_id" value="<?php echo $recipe['recipe_id']; ?>">
-            <textarea name="review_text" required></textarea><br>
-            <input type="submit" value="Add Comment">
-        </form>
     </div>
 </body>
 </html>

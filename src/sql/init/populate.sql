@@ -5,30 +5,20 @@ VALUES
 (CURRENT_TIMESTAMP, 'gordonramsay', 'gordon@example.com', 'chefking'),
 (CURRENT_TIMESTAMP, 'jamieoliver', 'jamie@example.com', 'healthychef');
 
+INSERT INTO Categories (name) 
+VALUES 
+('Dessert'),
+('Main Course'),
+('Appetizer'),
+('Beverage');
 
 INSERT INTO Recipes (name, category, user_id) 
 VALUES 
-('Chocolate Cake','Dessert', 1),
-('Grilled Salmon','Main Course', 2),
-('Apple Pie', 'Dessert', 3),
-('Caesar Salad','Appetizer', 4),
-('Mojito', 'Beverage',1);
-
-
-INSERT INTO Ingredients (recipe_id, name) 
-VALUES 
-(1, 'Chocolate'),
-(1, 'Flour'),
-(1, 'Sugar'),
-(2, 'Salmon'),
-(2, 'Lemon'),
-(2, 'Olive Oil'),
-(3, 'Apples'),
-(3, 'Cinnamon'),
-(4, 'Romaine Lettuce'),
-(4, 'Parmesan Cheese'),
-(5, 'Mint Leaves'),
-(5, 'Lime');
+('Chocolate Cake',1, 1),
+('Grilled Salmon',2, 2),
+('Apple Pie', 1, 3),
+('Caesar Salad',3, 4),
+('Mojito', 4,1);
 
 -- Populating reviews table
 INSERT INTO Reviews (recipe_id, user_id, review_text) 
