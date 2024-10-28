@@ -6,6 +6,53 @@ window.onload = function() {
     dom_objs.dashboard = document.querySelector("div#dashboard");
     dom_objs.loginButton = document.querySelector("#loginButton");
 
+    dom_objs.banner_profile.addEventListener("click", function() {
+        dom_objs.dashboard.classList.toggle("hide");
+        dom_objs.dashboard_blanket.classList.toggle("hide");
+    });
+
+    dom_objs.dashboard_blanket.addEventListener("click", function() {
+        dom_objs.dashboard.classList.toggle("hide");
+        dom_objs.dashboard_blanket.classList.toggle("hide");
+    });
+
+    // Add event listeners to review buttons
+    const reviewButtons = document.querySelectorAll('.review-button');
+    reviewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const recipeId = this.getAttribute('data-recipe-id');
+            fetchReviews(recipeId);
+        });
+    });
+};
+
+// Function to fetch reviews dynamically
+function fetchReviews(recipeId) {
+    fetch(`../../../server/reviews.php?recipe_id=${recipeId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            const reviewsContainer = document.getElementById('reviews-container');
+            reviewsContainer.innerHTML = ''; // Clear previous reviews
+            if (data.reviews && data.reviews.length > 0) {
+                data.reviews.forEach(review => {
+                    reviewsContainer.innerHTML += `<p><strong>${review.username}</strong>: ${review.review_text}</p>`;
+                });
+            } else {
+                reviewsContainer.innerHTML = '<p>No reviews for this recipe.</p>';
+            }
+            // Show the modal
+            const modal = document.getElementById('reviewModal');
+            modal.classList.remove('hide');
+            modal.classList.add('show');
+        })
+        .catch(error => {
+            console.error('Error fetching reviews:', error);
+            alert('Could not fetch reviews: ' + error.message);
+        });
+
     dom_objs.banner_profile.addEventListener("click", toggleDashboard);
     dom_objs.dashboard_blanket.addEventListener("click", toggleDashboard);
 
@@ -112,4 +159,5 @@ function animateButton(isHovering) {
     } else {
         dom_objs.loginButton.style.transform = "scale(1)";
     }
+
 }
