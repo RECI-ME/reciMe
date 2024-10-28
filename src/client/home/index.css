@@ -1,27 +1,35 @@
+/* DASHBOARD */
 div#dashboard_blanket {
     position: fixed;
     top: 0;
     z-index: 9;
-    width: 100vw;
-    height: 100vh;
+
+    width: 100svw;
+    height: 100svh;
+
     background: #000000dd;
     backdrop-filter: blur(8px);
+    
 }
 
 div#dashboard {
     position: fixed;
     top: 0;
     z-index: 10;
+
     float: left;
-    width: 95vw;
+
+    width: 95svw;
     max-width: 300px;
-    height: 100vh;
+    height: 100svh;
+
     background: var(--primary);
     color: var(--background);
 }
 
 div#dashboard div#profile_header {
-    margin-top: 5vh;
+    margin-top: 5svh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,11 +37,11 @@ div#dashboard div#profile_header {
 }
 
 div#dashboard div#profile_header img {
-    width: 10vw;
+    width: 10svw;
     max-width: 100px;
     min-width: 50px;
     aspect-ratio: 1 / 1;
-    border-radius: 60%;
+    border-radius: 60svw;
 }
 
 div#dashboard div#profile_header p {
@@ -42,8 +50,9 @@ div#dashboard div#profile_header p {
 }
 
 div#dashboard div#dashboard_menu {
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 2svh;
+    margin-bottom: 2svh;
+
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -51,17 +60,18 @@ div#dashboard div#dashboard_menu {
 }
 
 div#dashboard div#dashboard_menu a {
-    padding: 2vw 1vh;
+    padding: 2svw 1svh;
     padding-left: 0;
     width: 80%;
 }
 
-div#dashboard div#dashboard_menu a div {
+div#dashboard div#dashboard_menu a div{
     display: flex;
-    flex-direction: row;
+    flex-direction: center;
     justify-content: start;
     align-items: center;
 }
+
 
 div#dashboard div#dashboard_menu a div img {
     width: 30%;
@@ -76,6 +86,7 @@ div#dashboard div#dashboard_menu a {
 
 div#dashboard div#dashboard_menu a div p {
     margin-left: 10%;
+
     color: var(--secondary);
     font-size: 150%;
 }
@@ -83,26 +94,32 @@ div#dashboard div#dashboard_menu a div p {
 div#dashboard footer#imprint {
     position: fixed;
     bottom: 0;
-    padding-bottom: 2vh;
-    padding-left: 2vw;
+
+    padding-bottom: 2svh;
+    padding-left: 2svw;
+
 }
 
 div#dashboard footer#imprint a {
     color: var(--secondary);
 }
 
+
+/* BANNER */
 div#center_logo {
     position: absolute;
     z-index: 2;
-    width: 100vw;
-    height: 10vh;
+
+    width: 100svw;
+    height: 10svh;
+
     display: flex;
     justify-content: center;
 }
 
 div#center_logo img#logo {
-    margin-top: 1vh;
-    height: 10vh;
+    margin-top: 1svh;
+    height: 10svh;
     max-height: 100px;
     aspect-ratio: 16 / 10;
     object-fit: contain;
@@ -111,21 +128,27 @@ div#center_logo img#logo {
 div#banner {
     display: flex;
     align-items: center;
-    width: 100vw;
-    height: 10vh;
+
+    width: 100svw;
+    height: 10svh;
     max-height: 100px;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+
+    padding-top: 1svh;
+    padding-bottom: 1svh;
+
     background: var(--primary);
+
     color: var(--secondary);
 }
 
 div#banner div#profile {
-    margin-left: 2vw;
+    margin-left: 2svw;
+
     z-index: 3;
     display: flex;
     flex-direction: row;
     align-items: center;
+
     font-size: 150%;
 }
 
@@ -133,39 +156,54 @@ div#banner div img {
     width: 30%;
     max-width: 50px;
     aspect-ratio: 1 / 1;
-    border-radius: 60%;
+    border-radius: 60svw;
 }
 
 div#banner div p {
     margin-left: 5px;
+
     font-weight: bold;
 }
 
+
+/* FEED */
 div#feed {
     display: block;
-    width: 100vw;
-    height: 90vh;
+
+    width: 100svw;
+    height: 90svh;
     overflow-y: scroll;
+
     border: 1px solid var(--background);
 }
 
+
+/* RECIPES */
 div#feed div.recipe {
     margin: auto;
-    margin-top: 5vh;
-    padding: 2vh 3vw;
+    margin-top: 5svh;
+
+    padding: 2svh 3svw;
+
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 96vw;
+
+    width: 96svw;
     max-width: 800px;
     aspect-ratio: 3 / 2;
+
     background: var(--secondary);
+
     border: 1px solid var(--secondary);
     border-radius: 50px;
 }
 
+
+/* CHEFS */
 div#feed div.recipe div.chef {
     flex: 1;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -175,32 +213,39 @@ div#feed div.recipe div.chef img.avatar {
     width: 30%;
     max-width: 50px;
     aspect-ratio: 1 / 1;
-    border-radius: 60%;
+    border-radius: 60svw;
 }
 
 div#feed div.recipe div.chef p.username {
     margin-left: 5px;
+
     font-weight: bold;
 }
 
 div#feed div.recipe div.chef img.chef_hat {
     margin-left: 10px;
+
     width: 30%;
     max-width: 50px;
     aspect-ratio: 1 / 1;
 }
 
-div#feed div.recipe div.images {
+
+/* IMAGES */
+div#feed div.recipe div.images{
     flex: 3;
-    border: 1px solid #ffffff;
+    border: 1px solid green;
 }
 
 div#feed div.recipe div.images img.recipe_showcase {
     border: 1px solid black;
 }
 
-div#feed div.recipe div.reactions {
+
+/* REACTIONS */
+div#feed div.recipe div.reactions{
     flex: 1;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -217,6 +262,89 @@ div#feed div.recipe div.reactions button img {
     height: 100%;
     max-height: 50px;
 }
+
+
+/* Search Area */
+div#search_area {
+    display: flex;
+    justify-content: center;
+    padding: 1svw;
+    width: 80%;
+    margin: auto;
+    background: var(--secondary);
+    border-radius: 50px; /* Rounded ends */
+    flex-grow: 1;
+    margin-left: 10px; /* To space it from the search icon */
+    display: none; /* Initially hidden */
+}
+
+#search_input {
+    width: 100%;
+    padding: 0.5svh;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+#search_input:focus {
+    outline: none;
+}
+
+/* Filter buttons */
+#search_filters {
+    display: flex;
+    justify-content: space-around;
+    margin: 1svh 0;
+}
+
+#search_filters button {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    padding: 0.5svh 1svw;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#search_filters button:hover {
+    background-color: var(--accent);
+}
+
+/* Update the search toggle alignment */
+#search_toggle {
+    display: flex;
+    align-items: center; /* Align with the other dashboard items */
+    justify-content: start; /* Align content to the start */
+    padding: 2svw 1svh;
+    cursor: pointer;
+    width: 80%; /* Same as the other links */
+    padding-left: 0; /* To ensure it aligns like the rest of the menu items */
+}
+
+#search_toggle img {
+    width: 30%; /* Same width as other icons */
+    max-width: 50px;
+    aspect-ratio: 1 / 1;
+    filter: invert(1); /* Ensure consistency with other icons */
+}
+
+#search_toggle p {
+    margin-left: 10%; /* Aligns text properly with other items */
+    color: var(--secondary);
+    font-size: 150%;
+}
+
+/* When search is active, hide the search text */
+#search_toggle.active #search_text {
+    display: none;
+}
+
+/* When search is active, show the search input */
+#search_toggle.active #search_area {
+    display: flex;
+}
+
 
 /* Recipe Name Link */
 div.recipe-name {

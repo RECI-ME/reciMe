@@ -96,37 +96,47 @@ try {
                     <p class="username"><?php echo htmlspecialchars($recipe['username']); ?></p>
                     <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
                 </div>
-                <div class="recipe-name">
-                    <a href="../View_Recipe/view_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">
-                        <?php echo htmlspecialchars($recipe['name']); ?>
-                    </a>
-                </div>
                 <div class="images">
-                    <!-- Display the recipe image if available -->
-                    <?php if (!empty($recipe['image_path'])): ?>
-                        <a href="../View_Recipe/view_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">
-                            <img class="recipe_showcase" src="<?php echo '../../../' . htmlspecialchars($recipe['image_path']); ?>" alt="Recipe Image" />
-                        </a>
-                    <?php else: ?>
-                        <a href="../View_Recipe/view_recipe.php?recipe_id=<?php echo $recipe['recipe_id']; ?>">
-                            <img class="recipe_showcase" src="../../../assets/default_recipe_image.png" alt="Default Recipe Image" />
-                        </a>
-                    <?php endif; ?>
+                    <img class="recipe_showcase" src="" alt="" />
                 </div>
                 <div class="reactions">
                     <button class="cursor" onclick="toggleLike(event)">
                         <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
                     </button>
-                    <!-- Review Button with dynamic recipe ID -->
-                    <button class="cursor review-button" data-recipe-id="<?php echo $recipe['recipe_id']; ?>">
+                    <button class="cursor">
                         <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
                     </button>
-                    <button class="cursor" >
-                        <img src="../../../assets/mark_icon.png" alt="Report Icon" width="30px" height="30px" />
+                    <button class="cursor">
+                        <img src="../../../assets/mark_icon.png" alt="Mark Icon" width="30px" height="30px" />
                     </button>
                 </div>
             </div>
-            <?php endforeach; ?>
+            <div class="recipe">
+                <div class="cursor chef">
+                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
+                    <p class="username">username</p>
+                    <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
+                </div>
+                <div class="images">
+                    <img class="recipe_showcase" src="" alt="" />
+                </div>
+                <div class="reactions">
+                    <button class="cursor" onclick="toggleLike(event)">
+                        <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
+                    </button>
+                    <button class="cursor">
+                        <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
+                    </button>
+                    <button class="cursor">
+                        <img src="../../../assets/mark_icon.png" alt="Mark Icon" width="30px" height="30px" />
+                    </button>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Placeholder for search results -->
+        <div id="search_results" class="hide">
+            <p>No results found</p>
         </div>
         
         <div id="cookieConsent">
