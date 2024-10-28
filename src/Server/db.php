@@ -1,6 +1,7 @@
 <?php
 
 $env = parse_ini_file("../../../env.ini");
+
 if ($env == FALSE) {
     echo "server could not parse env file";
 }
