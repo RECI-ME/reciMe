@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../client/global.css">
+    <link rel="stylesheet" href="search_results.css">
+    <title>Search Results</title>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <div class="cursor" id="profile">
+                <img src="../../../assets/default_avatar_cream.png" alt="User Icon" width="30px" />
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search..." value="" />
+                <select id="filter-category">
+                    <option value="">Select Category</option>
+                    <!-- Options populated from PHP -->
+                </select>
+                <div class="rating-container">
+                    <label for="filter-rating">Rating</label>
+                    <input type="checkbox" id="rating-checkbox" checked>
+                    <input type="range" id="filter-rating" min="0" max="5" value="4">
+                    <div id="fork-emoji-display">🍴🍴🍴🍴</div>
+                </div>
+                <button id="apply-filters">Search</button>
+            </div>
+            <div class="logo-container">
+                <a href="../../../index.html">
+                    <img src="../../../assets/logo_horizontal.png" alt="ReciMe Logo" class="logo" />
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard blanket for closing when clicking outside -->
+    <div id="dashboard_blanket" class="hide"></div>
+
+    <!-- Dashboard with profile and menu -->
+    <div id="dashboard" class="hide">
+        <div class="cursor" id="profile_header">
+            <img src="../../../assets/default_avatar_cream.png" alt="Avatar" width="30px" />
+            <p>my username</p>
+        </div>
+        <hr>
+        <div id="dashboard_menu">
+            <div id="search_toggle">
+                <img src="../../../assets/search_icon.png" alt="Search Icon" width="30px"/>
+                <p id="search_text">Search</p>
+        
+                <!-- Search input directly inside this div -->
+                <div id="search_area" class="hide">
+                    <input type="text" id="search_input" placeholder="Search..." />
+                </div>
+            </div>
+        
+            <a href="">
+                <div>
+                    <img src="../../../assets/my_recipes_icon.png" alt="My Recipes Icon" width="30px"/>
+                    <p>My Recipes</p>
+                </div>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../../../assets/favorites.png" alt="Favorites Icon" width="30px"/>
+                    <p>Favorites</p>
+                </div>
+            </a>
+        </div>            
+        <footer id="imprint">
+            <a href="../../../imprint/imprint.html">Legal Information</a>
+        </footer>
+    </div>
+
+    <main id="results-container">
+        <!-- Search results will be dynamically loaded here -->
+    </main>
+
+    <div id="overlay" class="hidden"></div> <!-- Overlay for blurring the background -->
+
+    <script>
+        // Toggle dashboard visibility
+        const profile = document.getElementById("profile");
+        const dashboard = document.getElementById("dashboard");
+        const dashboardBlanket = document.getElementById("dashboard_blanket");
+    
+        profile.addEventListener("click", function() {
+            const isHidden = dashboard.classList.contains("hide");
+            dashboard.classList.toggle("hide", !isHidden);
+            dashboardBlanket.classList.toggle("hide", !isHidden);
+        });
+    
+        // Close the dashboard if the user clicks outside of it
+        dashboardBlanket.addEventListener("click", function() {
+            dashboard.classList.add("hide");
+            dashboardBlanket.classList.add("hide");
+        });
+    
+        // Add event listener for the search button
+        document.getElementById('apply-filters').addEventListener('click', function() {
+            const query = document.getElementById('search-bar').value; // Get the search input value
+            const rating = document.getElementById('filter-rating').value; // Get the rating value
+            const isRatingActive = document.getElementById('rating-checkbox').checked; // Check if the rating filter is active
+
+            if (query) {
+                // Redirect to the search results page with query and rating as URL parameters if rating is active
+                const url = `../searchresults/search_results.html?query=${encodeURIComponent(query)}${isRatingActive ? `&rating=${rating}` : ''}`;
+                window.location.href = url;
+            }
+        });
+    
+        // Slider input event for rating
+        const filterRating = document.getElementById('filter-rating');
+        const forkEmojiDisplay = document.getElementById('fork-emoji-display');
+    
+        // Function to update fork emojis
+        const updateForkEmojis = () => {
+            const rating = Math.round(filterRating.value);
+            forkEmojiDisplay.textContent = '🍴'.repeat(rating); // Update fork emojis
+        };
+    
+        // Set initial fork emojis
+        updateForkEmojis();
+    
+        // Update fork emojis when the slider value changes
+        filterRating.addEventListener('input', function() {
+            // Update background gradient for slider
+            const value = this.value; // Current value of the slider
+            const max = this.max; // Maximum value of the slider
+            const percentage = (value / max) * 100; // Calculate the percentage for the background fill
+    
+            // Adjust background gradient
+            this.style.background = `linear-gradient(to right, #FFD700 0%, #FFD700 ${percentage}%, #ffffff ${percentage}%, #ffffff 100%)`;
+    
+            // Update fork emojis
+            updateForkEmojis();
+        });
+    </script>
+</body>
+</html>

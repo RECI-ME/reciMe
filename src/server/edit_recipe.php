@@ -19,48 +19,27 @@ if ($conn->connect_error) {
     echo "couldn't connect to sql server";
 }
 
-$recipe_id = -1;
+$update_image = "";
+$image_size = getimagesize($_FILE["image"]["name"]);
+if ($image_size > 0) {
+    $image_dir = "../../user_images/" . $_POST["user_id"] . "/" . $_POST["recipe_id"] . "/";
+    $file_name = basename($_FILE["image"]["name"]);
 
-$query_result = $conn->query("SELECT recipe_id FROM Recipes WHERE "
-    . "Recipes.name = '" . $_POST["recipe"] . "' "
-    . "AND Recipes.user_id = " . $_POST["user_id"]
-);
+    $upload_status = move_uploaded_file($_FILE["image"]["name"], $image_dir . $file_name);
+    if (!$upload_status) {
+        echo "failed to upload image";
+    }
 
-if ($query_result == FALSE || $query_result->num_rows == 0) {
-    echo "couln't locate the correct recipe";
+    $update_image = "image = '" . $image_dir . $file_name . "', ";
 }
 
-while($row = $query_result->fetch_assoc()) {
-    $recipe_id = $row["recipe_id"];
-    break;
-}
 
-$query_result = $conn->query("UPDATE Recipes SET name = '" . ($_POST["name"]) . "' "
-    . "WHERE Recipes.recipe_id = " . recipe_id;
-);
-
-if ($query_result == FALSE) {
-    echo "failed to update recipe";
-}
-
-$query_result = $conn->query("SELECT category_id FROM Categories WHERE Categories.name = '" . $_POST["category"] . "'");
-if ($query_result->num_rows == 0) {
-    echo "no such category exists: " . $_POST["category"];
-}
-
-$category_id = -1;
-
-while ($row = $query_result->fetch_assoc()) {
-    $category_id = $row["category_id"];
-    break;
-}
-
-if ($category_id == -1) {
-    echo "no such category exists!";
-}
-
-$query_result = $conn->query("UPDATE Recipes SET category = " . $category_id . " "
-    . "WHERE Recipes.recipe_id = " . recipe_id;
+$query_result = $conn->query("UPDATE Recipes 
+    SET name = '" . $_POST["name"] . "', "
+    . $update_image
+    . "description = '" . $_POST["description"] . "', "
+    . "category = " . $_POST["category"]
+    . " WHERE Recipes.recipe_id = " . $_POST["recipe_id"];
 );
 
 if ($query_result == FALSE) {

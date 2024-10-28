@@ -1,0 +1,237 @@
+/* DASHBOARD */
+div#dashboard_blanket {
+    position: fixed;
+    top: 0;
+    z-index: 9;
+
+    width: 100svw;
+    height: 100svh;
+
+    background: #000000dd;
+    backdrop-filter: blur(8px);
+    
+}
+
+div#dashboard {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+
+    float: left;
+
+    width: 95svw;
+    max-width: 300px;
+    height: 100svh;
+
+    background: var(--primary);
+    color: var(--background);
+}
+
+div#dashboard div#profile_header {
+    margin-top: 5svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#dashboard div#profile_header img {
+    width: 10svw;
+    max-width: 100px;
+    min-width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 60svw;
+}
+
+div#dashboard div#profile_header p {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+div#dashboard div#dashboard_menu {
+    margin-top: 2svh;
+    margin-bottom: 2svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+div#dashboard div#dashboard_menu a {
+    padding: 2svw 1svh;
+    padding-left: 0;
+    width: 80%;
+}
+
+div#dashboard div#dashboard_menu a div{
+    display: flex;
+    flex-direction: center;
+    justify-content: start;
+    align-items: center;
+}
+
+
+div#dashboard div#dashboard_menu a div img {
+    width: 30%;
+    max-width: 50px;
+    aspect-ratio: 1 / 1;
+    filter: invert(1);
+}
+
+div#dashboard div#dashboard_menu a {
+    text-decoration: none;
+}
+
+div#dashboard div#dashboard_menu a div p {
+    margin-left: 10%;
+
+    color: var(--secondary);
+    font-size: 150%;
+}
+
+div#dashboard footer#imprint {
+    position: fixed;
+    bottom: 0;
+
+    padding-bottom: 2svh;
+    padding-left: 2svw;
+
+}
+
+div#dashboard footer#imprint a {
+    color: var(--secondary);
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+
+    width: 100svw;
+    height: 10svh;
+    max-height: 100px;
+
+    padding-top: 1svh;
+    padding-bottom: 1svh;
+
+    background: var(--primary);
+
+    color: var(--secondary);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#search-bar {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#filter-category, #filter-rating {
+    margin-right: 10px;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+}
+
+#filter-rating {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 8px;
+    background: linear-gradient(to right, #FFD700 0%, #FFD700 0%, #ffffff 0%, #ffffff 100%);
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+#filter-rating::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none; /* No border to make the thumb blend into the track */
+    z-index: 2; /* Thumb on top */
+    position: relative;
+}
+
+#filter-rating::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#filter-rating::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    background: #FFD700;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Hide the default track background */
+#filter-rating::-webkit-slider-runnable-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+#filter-rating::-moz-range-track {
+    background: transparent;
+}
+
+#filter-rating::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+
+#fork-emoji-display {
+    margin-top: 5px;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 100%; /* Keep it centered */
+}
+
+#apply-filters {
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--background);
+    color: var(--primary); /* Set text color to --primary */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* Automatically pushes logo to the right */
+    margin-right: 10px; /* Space from the edge */
+}
+
+.logo {
+    max-width: 80px; /* Made it a little smaller */
+    margin-right: 50px;
+}
+
+.profile {
+    padding-left: 50px; /* Space from the edge */
+    cursor: pointer;
+}
