@@ -1,20 +1,4 @@
 <!DOCTYPE html>
-<?php
-include('../../server/db.php'); 
-include('../../server/session.php');
-
-// Check if user is logged in using the session cookie
-checkSession(); 
-
-// Fetch all recipes along with the username of the user who posted them
-try {
-    $query = $db->prepare('SELECT r.*, u.username FROM Recipes r JOIN Users u ON r.user_id = u.user_id');
-    $query->execute();
-    $recipes = $query->fetchAll(PDO::FETCH_ASSOC);
-} catch (Exception $e) {
-    die('Error fetching recipes: ' . $e->getMessage());
-}
-?>
 <html>
     <head>
         <title>ReciMe | Home</title>
@@ -40,6 +24,22 @@ try {
             }
         </script>        
     </head>
+        <?php
+        include('../../Server/db.php'); 
+        include('../../Server/session.php');
+
+        // Check if user is logged in using the session cookie
+        checkSession(); 
+
+        // Fetch all recipes along with the username of the user who posted them
+        try {
+            $query = $db->prepare('SELECT r.*, u.username FROM Recipes r JOIN Users u ON r.user_id = u.user_id');
+            $query->execute();
+            $recipes = $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo 'Error fetching recipes: ' . $e->getMessage();
+        }
+        ?> 
 
     <body>
         <div id="dashboard_blanket" class="hide"></div>
@@ -89,11 +89,12 @@ try {
         </div>
 
         <div id="feed">
-            <?php foreach ($recipes as $recipe): ?>
+            <?php foreach ($recipes as $recipe)
+            echo `
             <div class="recipe">
                 <div class="cursor chef">
                     <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
-                    <p class="username"><?php echo htmlspecialchars($recipe['username']); ?></p>
+                    <p class="username">` . $recipe['username'] . `</p>
                     <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
                 </div>
                 <div class="images">
@@ -111,27 +112,8 @@ try {
                     </button>
                 </div>
             </div>
-            <div class="recipe">
-                <div class="cursor chef">
-                    <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
-                    <p class="username">username</p>
-                    <img class="chef_hat" src="../../../assets/chef_hat.png" alt="Chef Hat" width="30px" />
-                </div>
-                <div class="images">
-                    <img class="recipe_showcase" src="" alt="" />
-                </div>
-                <div class="reactions">
-                    <button class="cursor" onclick="toggleLike(event)">
-                        <img src="../../../assets/like_icon.png" alt="Like Icon" width="30px" height="30px" />
-                    </button>
-                    <button class="cursor">
-                        <img src="../../../assets/review_icon.png" alt="Review Icon" width="30px" height="30px" />
-                    </button>
-                    <button class="cursor">
-                        <img src="../../../assets/mark_icon.png" alt="Mark Icon" width="30px" height="30px" />
-                    </button>
-                </div>
-            </div>
+            `
+            ?>
         </div>
   
         <!-- Placeholder for search results -->
@@ -146,5 +128,4 @@ try {
           </p>
         </div>
    </body>
->>>>>>> 391bf5129247d4e770f3b33d8e38ddf3b5e119cb:src/client/home/index.php
 </html>
