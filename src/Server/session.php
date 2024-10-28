@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 function startSession($user_id, $username) {
     $_SESSION['user_id'] = $user_id;
