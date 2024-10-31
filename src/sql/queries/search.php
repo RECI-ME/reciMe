@@ -36,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // Output results as JSON
         echo json_encode($recipes);
-        
+
     } catch (Exception $e) {
         handleError("An error occurred during the search process: " . $e->getMessage());
     }
 }
 
-$conn = null;
+$conn = null; // Close the connection
 ?>
