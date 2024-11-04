@@ -14,7 +14,6 @@ if (isset($_GET['recipe_id'])) {
 } else {
     $response['error'] = 'No recipe specified.';
     echo json_encode($response);
-    exit();
 }
 
 try {
