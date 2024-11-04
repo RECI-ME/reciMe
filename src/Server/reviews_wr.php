@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $review_text = trim($_POST['review_text']);
 
         if ($review_text == '') {
-            die('Comment cannot be empty.');
+            header("Location: ../Server/error.php?error=" . urlencode("internal_server_err"));
+            die('comment cannot be empty.');
         }
 
         try {
@@ -22,12 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
 
         } catch (Exception $e) {
+            header("Location: ../Server/error.php?error=" . urlencode("invalid_request"));
             die('Error adding comment: ' . $e->getMessage());
         }
     } else {
+        header("Location: ../Server/error.php?error=" . urlencode("invalid_request"));
         die('Invalid form submission.');
     }
 } else {
+    header("Location: ../Server/error.php?error=" . urlencode("invalid_request"));
     die('Invalid request method.');
 }
 ?>
