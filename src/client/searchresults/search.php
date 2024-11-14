@@ -1,6 +1,6 @@
 // search.php
 <?php
-include 'path/to/database_connection.php'; // Make sure this path is correct
+include "../../server/db.php"
 
 $search_query = $_GET['query'];
 $sql = "SELECT r.*, c.name AS chef_name, c.image AS chef_image 
