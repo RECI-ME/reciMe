@@ -70,6 +70,13 @@
                         <p>Favorites</p>
                     </div>
                 </a>
+                <!-- My Location Button -->
+                <a href="../map/map.html">  
+                    <div>
+                      
+                        <p>My Location <span>📍</span></p>
+                    </div>
+                </a>
             </div>
             <footer id="imprint">
                 <a href="../../../imprint/imprint.html">Legal Information</a>
@@ -91,7 +98,7 @@
 
         <div id="feed">
             <?php foreach ($recipes as $recipe)
-            echo `
+            echo `  
             <div class="recipe">
                 <div class="cursor chef">
                     <img class="avatar" src="../../../assets/default_avatar.png" alt="Avatar" width="30px"  />
