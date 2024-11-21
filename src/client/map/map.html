@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map View</title>
+  <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <!-- Taskbar/Header -->
+  <div class="header">
+    <div class="logo-container">
+      <img src="../../../assets/logowide.png" alt="reciMe Logo" class="logo">
+    </div>
+    <button class="back-btn" onclick="window.location.href='../home/index.php'">Back</button>
+  </div>
+
+  <!-- Map Container -->
+  <div id="map-wrapper">
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>

@@ -161,3 +161,26 @@ function animateButton(isHovering) {
     }
 
 }
+
+// Get the "My Location" button element
+const locationButton = document.getElementById("my_location_button");
+
+// Add hover effect (optional)
+locationButton.addEventListener("mouseenter", () => {
+    locationButton.style.transform = "scale(1.1)";
+});
+
+locationButton.addEventListener("mouseleave", () => {
+    locationButton.style.transform = "scale(1)";
+});
+
+// Add click animation (optional)
+locationButton.addEventListener("click", () => {
+    // Animation for click (e.g., shrink and grow effect)
+    locationButton.style.transform = "scale(0.95)";
+
+    // Reset after animation
+    setTimeout(() => {
+        locationButton.style.transform = "scale(1)";
+    }, 150); // Reset after 150ms
+});

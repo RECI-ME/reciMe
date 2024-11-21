@@ -465,3 +465,30 @@ div.recipe-detail form input[type="submit"] {
 #cookieConsent button:hover {
     background-color: #ffcc99; 
 }
+
+/* My Location Button */
+#my_location_button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: var(--primary);
+    color: var(--background);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#my_location_button:hover {
+    background-color: var(--accent);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+#my_location_button:active {
+    transform: scale(0.95);
+}
