@@ -26,8 +26,8 @@
         </script>        
     </head>
         <?php
-        include('../../Server/db.php'); 
-        include('../../Server/session.php');
+        include('../../server/db.php'); 
+        include('../../server/session.php');
 
         // Check if user is logged in using the session cookie
         checkSession(); 
